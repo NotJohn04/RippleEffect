@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RippleEffect Wallet Extension</title>
+  <style>
+    body {
+      width: 400px;
+      height: 600px;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .wallet-container,
+    .send-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .wallet-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .account-info {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .account-name {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .public-key {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .balance-container {
+      background-color: #E8F0FE;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .balance {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .receive-button,
+    .send-button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .transaction-history {
+      margin-top: 30px;
+    }
+
+    .transaction-history h3 {
+      font-size: 20px;
+    }
+
+    .send-container {
+      display: none;
+    }
+
+    .send-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .send-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .send-container label {
+      margin-bottom: 10px;
+    }
+
+    .send-container input[type="text"],
+    .send-container input[type="number"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .send-container .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .send-container .checkbox-container input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .send-container .button-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .send-container button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wallet-container">
+      <div class="wallet-header">
+        <img src="images/icon128.png" alt="RippleEffect Logo" class="logo">
+        <div class="account-info">
+          <h2 class="account-name">Account 1</h2>
+          <p class="public-key">4FpYT...</p>
+        </div>
+      </div>
+      
+      <div class="balance-container">
+        <p class="balance">0 SOL</p>
+      </div>
+      
+      <div class="button-container">
+        <button class="receive-button">Receive</button>
+        <button class="send-button">Send</button>
+      </div>
+      
+      <div class="transaction-history">
+        <h3>Transaction History</h3>
+        <ul class="history-list">
+          <!-- Transaction history items will be added here -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="send-container">
+      <h2>Send SOL</h2>
+      <form>
+        <div class="input-container">
+          <label for="recipient">Recipient's Address:</label>
+          <input type="text" id="recipient" name="recipient" required>
+        </div>
+
+        <div class="input-container">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" step="0.01" required>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="charity" name="charity">
+          <label for="charity">Support Climate Change</label>
+        </div>
+
+        <div class="button-container">
+          <button type="submit">Send</button>
+          <button type="button" class="cancel-button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
